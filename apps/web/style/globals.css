@@ -1,0 +1,103 @@
+/* Import Tailwind directives FIRST */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   SHARED BASE LAYER - Reset & Global Styles
+   ============================================ */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Web-specific overrides */
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* ============================================
+   SHARED & WEB-SPECIFIC COMPONENTS
+   ============================================ */
+@layer components {
+  /* Shared component styles */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-full hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+
+  .card-base {
+    @apply block p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/70 border border-white/20 shadow-xl;
+  }
+
+  /* Web-specific component styles */
+  .hero-title {
+    @apply text-6xl font-bold mb-6 tracking-tight;
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+
+  .section-container {
+    @apply max-w-4xl mx-auto px-8 py-20;
+  }
+}
+
+/* ============================================
+   SHARED & WEB-SPECIFIC UTILITIES
+   ============================================ */
+@layer utilities {
+  /* Shared utility styles */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Web-specific utility styles */
+  .bg-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+}
